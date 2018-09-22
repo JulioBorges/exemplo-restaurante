@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\RestauranteCedro.Data\RestauranteCedro.Data.csproj" />
+    <ProjectReference Include="..\RestauranteCedro.Data\RestauranteCedro.Data.csproj" />
   </ItemGroup>
 
 </Project>

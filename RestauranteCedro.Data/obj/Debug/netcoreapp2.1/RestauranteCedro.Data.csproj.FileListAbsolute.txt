@@ -1,0 +1,8 @@
+D:\Desenvolvimento\Teste Cedro\RestauranteCedro.Data\bin\Debug\netcoreapp2.1\RestauranteCedro.Data.deps.json
+D:\Desenvolvimento\Teste Cedro\RestauranteCedro.Data\bin\Debug\netcoreapp2.1\RestauranteCedro.Data.dll
+D:\Desenvolvimento\Teste Cedro\RestauranteCedro.Data\obj\Debug\netcoreapp2.1\RestauranteCedro.Data.csproj.CoreCompileInputs.cache
+D:\Desenvolvimento\Teste Cedro\RestauranteCedro.Data\obj\Debug\netcoreapp2.1\RestauranteCedro.Data.AssemblyInfoInputs.cache
+D:\Desenvolvimento\Teste Cedro\RestauranteCedro.Data\obj\Debug\netcoreapp2.1\RestauranteCedro.Data.AssemblyInfo.cs
+D:\Desenvolvimento\Teste Cedro\RestauranteCedro.Data\bin\Debug\netcoreapp2.1\RestauranteCedro.Data.pdb
+D:\Desenvolvimento\Teste Cedro\RestauranteCedro.Data\obj\Debug\netcoreapp2.1\RestauranteCedro.Data.dll
+D:\Desenvolvimento\Teste Cedro\RestauranteCedro.Data\obj\Debug\netcoreapp2.1\RestauranteCedro.Data.pdb

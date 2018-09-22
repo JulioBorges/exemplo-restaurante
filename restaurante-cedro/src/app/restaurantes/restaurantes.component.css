@@ -1,0 +1,17 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container > * {
+    width: 100%;
+}
+
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+
+.mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+    background-color: green!important;
+}

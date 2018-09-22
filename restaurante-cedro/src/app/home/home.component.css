@@ -1,0 +1,22 @@
+.center {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.box img {
+    width: 450px;
+    height: 350px;
+}

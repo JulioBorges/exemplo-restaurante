@@ -45,7 +45,7 @@ namespace RestauranteCedro.Api
             }
 
             app.UseCors(builder => builder.AllowAnyOrigin()
-            .AllowAnyMethod().AllowAnyHeader().DisallowCredentials().WithMethods("PUT"));
+            .AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
             app.UseMvc();

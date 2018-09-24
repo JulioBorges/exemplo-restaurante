@@ -6,10 +6,6 @@
     align-items: center;
 }
 
-.text-center {
-    text-align: center;
-}
-
 .box {
     display: flex;
     align-items: center;

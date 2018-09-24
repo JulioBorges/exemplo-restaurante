@@ -4,8 +4,6 @@ import { HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
-import { Restaurante } from '../models/restaurante';
 import { Prato } from '../models/prato';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 import { Constants } from '../constants/constant';

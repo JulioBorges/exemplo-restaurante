@@ -20,7 +20,8 @@ namespace RestauranteCedro.Api.Contrato
 
         protected async Task<IEnumerable<T>> RetornarEntidades(params string [] includes)
         {
-            return await PrepararQuery(includes).AsNoTracking().ToListAsync();
+            var dados = await PrepararQuery(includes).AsNoTracking().ToListAsync();
+            return dados;
         }
 
         public async Task<IActionResult> RetornarEntidade(int id, params string[] includes)

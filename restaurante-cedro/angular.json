@@ -53,8 +53,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "restaurante-cedro:build",
-            "proxyConfig": "proxy.conf.json"
+            "browserTarget": "restaurante-cedro:build"
           },
           "configurations": {
             "production": {

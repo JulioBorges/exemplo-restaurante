@@ -56,6 +56,8 @@ import {
 } from '@angular/material';
 import { RestauranteComponent } from './restaurante/restaurante.component';
 import { PratoComponent } from './prato/prato.component';
+import { CurrencyFormatterDirective } from './currency-formatter.directive';
+import { CurrencyPipePipe } from './currency-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { PratoComponent } from './prato/prato.component';
     HomeComponent,
     RestauranteComponent,
     PratoComponent,
-    CorpoDialog
+    CorpoDialog,
+    CurrencyFormatterDirective,
+    CurrencyPipePipe
   ],
   entryComponents: [CorpoDialog],
   imports: [

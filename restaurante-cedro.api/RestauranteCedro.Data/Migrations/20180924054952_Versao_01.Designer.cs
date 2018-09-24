@@ -9,7 +9,7 @@ using RestauranteCedro.Data;
 namespace RestauranteCedro.Data.Migrations
 {
     [DbContext(typeof(RestauranteContext))]
-    [Migration("20180922032611_Versao_01")]
+    [Migration("20180924054952_Versao_01")]
     partial class Versao_01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,7 +62,7 @@ namespace RestauranteCedro.Data.Migrations
             modelBuilder.Entity("RestauranteCedro.Data.Entities.Prato", b =>
                 {
                     b.HasOne("RestauranteCedro.Data.Entities.Restaurante", "Restaurante")
-                        .WithMany()
+                        .WithMany("Pratos")
                         .HasForeignKey("IdRestaurante")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -19,6 +19,8 @@ namespace RestauranteCedro.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             services.AddScoped<DatabaseInitializer>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<RestauranteContext>(options => 
@@ -41,6 +43,9 @@ namespace RestauranteCedro.Api
                 var init = scope.ServiceProvider.GetService<DatabaseInitializer>();
                 init.Seed();
             }
+
+            app.UseCors(builder => builder.AllowAnyOrigin()
+            .AllowAnyMethod().AllowAnyHeader().DisallowCredentials().WithMethods("PUT"));
 
             app.UseHttpsRedirection();
             app.UseMvc();

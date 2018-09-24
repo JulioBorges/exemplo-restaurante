@@ -2,10 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using RestauranteCedro.Data;
 using RestauranteCedro.Data.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace RestauranteCedro.Api.Contrato
@@ -13,7 +11,7 @@ namespace RestauranteCedro.Api.Contrato
     public class ControllerGenerico<T> : ControllerBase
         where T : DefaultEntity
     {
-        private RestauranteContext _contexto;
+        protected RestauranteContext _contexto;
 
         public ControllerGenerico(RestauranteContext contexto)
         {

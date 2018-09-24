@@ -60,7 +60,7 @@ namespace RestauranteCedro.Data.Migrations
             modelBuilder.Entity("RestauranteCedro.Data.Entities.Prato", b =>
                 {
                     b.HasOne("RestauranteCedro.Data.Entities.Restaurante", "Restaurante")
-                        .WithMany()
+                        .WithMany("Pratos")
                         .HasForeignKey("IdRestaurante")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

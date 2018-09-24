@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RestauranteCedro.Api.Contrato;
 using RestauranteCedro.Data;
 using RestauranteCedro.Data.Entities;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace RestauranteCedro.Api.Controllers
@@ -26,6 +28,16 @@ namespace RestauranteCedro.Api.Controllers
         public async Task<IActionResult> GetRestaurante([FromRoute] int id)
         {
             return await RetornarEntidade(id);
+        }
+
+        [HttpGet("pesquisa/{nome}")]
+        public async Task<IActionResult> GetRestaurante(string nome)
+        {
+            var restaurantes = await _contexto.Restaurantes
+                .Where(rest => rest.Nome.ToLower().Contains(nome.ToLower()))
+                .ToListAsync();
+
+            return Ok(restaurantes);
         }
 
         [HttpPut("{id}")]

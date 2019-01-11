@@ -26,11 +26,6 @@ namespace RestauranteCedro.Api.Contrato
 
         public async Task<IActionResult> RetornarEntidade(int id, params string[] includes)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             var entidade = await PrepararQuery(includes).AsNoTracking()
                 .FirstOrDefaultAsync(o => o.Id == id);
 
@@ -42,15 +37,8 @@ namespace RestauranteCedro.Api.Contrato
 
         public async Task<IActionResult> AtualizarEntidade(int id, T entidade)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             if (id != entidade.Id)
-            {
                 return BadRequest();
-            }
 
             _contexto.Entry(entidade).State = EntityState.Modified;
 
@@ -75,11 +63,6 @@ namespace RestauranteCedro.Api.Contrato
 
         public async Task<IActionResult> InserirEntidade(T entidade, string acaoGet)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             _contexto.Add(entidade);
             await _contexto.SaveChangesAsync();
 
@@ -88,16 +71,10 @@ namespace RestauranteCedro.Api.Contrato
 
         public async Task<IActionResult> ExcluirEntidade(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             var entidade = await _contexto.Set<T>().FindAsync(id);
+            
             if (entidade == null)
-            {
                 return NotFound();
-            }
 
             _contexto.Remove(entidade);
             await _contexto.SaveChangesAsync();

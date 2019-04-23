@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestauranteCedro.Api", "RestauranteCedro.Api\RestauranteCedro.Api.csproj", "{CCB9937C-A275-44C1-BB0C-0ADEA77111C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurante.Api", "Restaurante.Api\Restaurante.Api.csproj", "{CCB9937C-A275-44C1-BB0C-0ADEA77111C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestauranteCedro.Data", "RestauranteCedro.Data\RestauranteCedro.Data.csproj", "{8640B0B7-7FC7-4B04-971F-BF976FEF55F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurante.Data", "Restaurante.Data\Restaurante.Data.csproj", "{8640B0B7-7FC7-4B04-971F-BF976FEF55F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

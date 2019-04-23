@@ -1,0 +1,41 @@
+<div>
+  <h3>CADASTRO DE PRATO</h3>
+  <fieldset>
+    <legend>Dados</legend>
+
+    <mat-form-field>
+      <mat-select placeholder="Restaurante" [(value)]="prato.idRestaurante">
+        <mat-option *ngFor="let rest of restaurantes" [value]="rest.id">
+          {{ rest.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="form-container">
+      <mat-form-field>
+        <input matInput placeholder="Nome do prato" [(ngModel)]="prato.nome" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-container">
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          step="0.01"
+          placeholder="Preço do prato"
+          [(ngModel)]="prato.preco"
+          appCurrencyFormatter
+        />
+      </mat-form-field>
+    </div>
+    <div class="button-row">
+      <button mat-flat-button color="warn" [routerLink]="['/pratos']">
+        <mat-icon>undo</mat-icon>Cancelar
+      </button>
+      <button mat-flat-button color="accent" (click)="insertOrUpdate()">
+        <mat-icon>save</mat-icon>Salvar
+      </button>
+    </div>
+  </fieldset>
+</div>

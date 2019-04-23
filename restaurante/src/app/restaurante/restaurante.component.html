@@ -1,0 +1,24 @@
+<div>
+  <h3>CADASTRO DE RESTAURANTE</h3>
+  <fieldset>
+    <legend>Dados</legend>
+    <div class="form-container">
+      <mat-form-field>
+        <input
+          id="input-nome"
+          matInput
+          placeholder="Nome do restaurante"
+          [(ngModel)]="restaurante.nome"
+        />
+      </mat-form-field>
+    </div>
+    <div class="button-row">
+      <button id="btn-cancelar" mat-flat-button color="warn" [routerLink]="['/restaurantes']">
+        <mat-icon>undo</mat-icon>Cancelar
+      </button>
+      <button id="btn-salvar" mat-flat-button color="accent" (click)="insertOrUpdate()">
+        <mat-icon>save</mat-icon>Salvar
+      </button>
+    </div>
+  </fieldset>
+</div>

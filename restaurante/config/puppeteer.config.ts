@@ -1,3 +1,4 @@
+// tslint:disable: semicolon
 module.exports = {
   headless: false,
   defaultViewport: {

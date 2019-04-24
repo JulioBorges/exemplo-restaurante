@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "private": true,
   "dependencies": {

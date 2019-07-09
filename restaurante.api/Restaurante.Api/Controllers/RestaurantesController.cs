@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RestauranteCedro.Api.Contrato;
-using RestauranteCedro.Data;
-using RestauranteCedro.Data.Entities;
+using Restaurante.Api.Contrato;
+using Restaurante.Data;
+using Restaurante.Data.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestauranteCedro.Api.Controllers
+namespace Restaurante.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RestaurantesController : ControllerGenerico<Restaurante>
+    public class RestaurantesController : ControllerGenerico<Data.Entities.Restaurante>
     {
         public RestaurantesController(RestauranteContext contexto)
             : base (contexto)
@@ -19,7 +19,7 @@ namespace RestauranteCedro.Api.Controllers
         }
 
         [HttpGet("")]
-        public async Task<IEnumerable<Restaurante>> GetRestaurantes()
+        public async Task<IEnumerable<Data.Entities.Restaurante>> GetRestaurantes()
         {
             return await RetornarEntidades();
         }
@@ -41,13 +41,13 @@ namespace RestauranteCedro.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRestaurante([FromRoute] int id, [FromBody] Restaurante restaurante)
+        public async Task<IActionResult> PutRestaurante([FromRoute] int id, [FromBody] Data.Entities.Restaurante restaurante)
         {
             return await AtualizarEntidade(id, restaurante);
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostRestaurante([FromBody] Restaurante restaurante)
+        public async Task<IActionResult> PostRestaurante([FromBody] Data.Entities.Restaurante restaurante)
         {
             return await InserirEntidade(restaurante, "GetRestaurante");
         }

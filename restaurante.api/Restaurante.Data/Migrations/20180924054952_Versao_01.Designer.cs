@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RestauranteCedro.Data;
+using Restaurante.Data;
 
-namespace RestauranteCedro.Data.Migrations
+namespace Restaurante.Data.Migrations
 {
     [DbContext(typeof(RestauranteContext))]
     [Migration("20180924054952_Versao_01")]
@@ -20,7 +20,7 @@ namespace RestauranteCedro.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("RestauranteCedro.Data.Entities.Prato", b =>
+            modelBuilder.Entity("Restaurante.Data.Entities.Prato", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace RestauranteCedro.Data.Migrations
                     b.ToTable("Prato");
                 });
 
-            modelBuilder.Entity("RestauranteCedro.Data.Entities.Restaurante", b =>
+            modelBuilder.Entity("Restaurante.Data.Entities.Restaurante", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,9 +59,9 @@ namespace RestauranteCedro.Data.Migrations
                     b.ToTable("Restaurante");
                 });
 
-            modelBuilder.Entity("RestauranteCedro.Data.Entities.Prato", b =>
+            modelBuilder.Entity("Restaurante.Data.Entities.Prato", b =>
                 {
-                    b.HasOne("RestauranteCedro.Data.Entities.Restaurante", "Restaurante")
+                    b.HasOne("Restaurante.Data.Entities.Restaurante", "Restaurante")
                         .WithMany("Pratos")
                         .HasForeignKey("IdRestaurante")
                         .OnDelete(DeleteBehavior.Cascade);

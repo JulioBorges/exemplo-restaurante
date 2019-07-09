@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
-namespace RestauranteCedro.Api.Controllers
+namespace Restaurante.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RestauranteCedro.Data.Entities;
+using Restaurante.Data.Entities;
 
-namespace RestauranteCedro.Data
+namespace Restaurante.Data
 {
     public class RestauranteContext : DbContext
     {
@@ -10,14 +10,14 @@ namespace RestauranteCedro.Data
         { }
 
 
-        public DbSet<Restaurante> Restaurantes { get; set; }
+        public DbSet<Entities.Restaurante> Restaurantes { get; set; }
 
         public DbSet<Prato> Pratos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Restaurante>()
+            modelBuilder.Entity<Entities.Restaurante>()
               .HasMany(o => o.Pratos)
               .WithOne(o => o.Restaurante)
               .OnDelete(DeleteBehavior.Cascade);

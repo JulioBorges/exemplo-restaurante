@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RestauranteCedro.Data;
+using Restaurante.Data;
 
-namespace RestauranteCedro.Api
+namespace Restaurante.Api
 {
     public class Startup
     {

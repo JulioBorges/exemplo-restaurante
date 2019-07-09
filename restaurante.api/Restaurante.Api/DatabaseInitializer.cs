@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RestauranteCedro.Data;
+using Restaurante.Data;
 
-namespace RestauranteCedro.Api
+namespace Restaurante.Api
 {
     public class DatabaseInitializer
     {

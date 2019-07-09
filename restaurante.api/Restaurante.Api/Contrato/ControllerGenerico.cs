@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RestauranteCedro.Data;
-using RestauranteCedro.Data.Entities;
+using Restaurante.Data;
+using Restaurante.Data.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestauranteCedro.Api.Contrato
+namespace Restaurante.Api.Contrato
 {
     public class ControllerGenerico<T> : ControllerBase
         where T : DefaultEntity

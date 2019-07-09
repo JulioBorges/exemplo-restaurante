@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
+using Restaurante.Api.Contrato;
+using Restaurante.Data;
+using Restaurante.Data.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using RestauranteCedro.Api.Contrato;
-using RestauranteCedro.Data;
-using RestauranteCedro.Data.Entities;
 
-namespace RestauranteCedro.Api.Controllers
+namespace Restaurante.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

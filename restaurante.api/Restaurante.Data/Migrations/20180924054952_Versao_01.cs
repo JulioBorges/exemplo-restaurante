@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RestauranteCedro.Data.Migrations
+namespace Restaurante.Data.Migrations
 {
     public partial class Versao_01 : Migration
     {

@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restaurante.Api.Contrato;
-using Restaurante.Data;
-using Restaurante.Data.Entities;
+using Restaurante.Core.Services;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,15 +10,15 @@ namespace Restaurante.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RestaurantesController : ControllerGenerico<Data.Entities.Restaurante>
+    public class RestaurantesController : ControllerGenerico<Data.Domain.Restaurante>
     {
-        public RestaurantesController(RestauranteContext contexto)
-            : base (contexto)
+        public RestaurantesController(IService<Data.Domain.Restaurante> servico)
+            : base (servico)
         {
         }
 
         [HttpGet("")]
-        public async Task<IEnumerable<Data.Entities.Restaurante>> GetRestaurantes()
+        public async Task<IEnumerable<Data.Domain.Restaurante>> GetRestaurantes()
         {
             return await RetornarEntidades();
         }
@@ -33,7 +32,7 @@ namespace Restaurante.Api.Controllers
         [HttpGet("pesquisa/{nome}")]
         public async Task<IActionResult> GetRestaurante(string nome)
         {
-            var restaurantes = await _contexto.Restaurantes
+            var restaurantes = await _servico.GetAll()
                 .Where(rest => rest.Nome.ToLower().Contains(nome.ToLower()))
                 .ToListAsync();
 
@@ -41,13 +40,13 @@ namespace Restaurante.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRestaurante([FromRoute] int id, [FromBody] Data.Entities.Restaurante restaurante)
+        public async Task<IActionResult> PutRestaurante([FromRoute] int id, [FromBody] Data.Domain.Restaurante restaurante)
         {
             return await AtualizarEntidade(id, restaurante);
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostRestaurante([FromBody] Data.Entities.Restaurante restaurante)
+        public async Task<IActionResult> PostRestaurante([FromBody] Data.Domain.Restaurante restaurante)
         {
             return await InserirEntidade(restaurante, "GetRestaurante");
         }

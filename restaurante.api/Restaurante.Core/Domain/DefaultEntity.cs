@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Restaurante.Data.Entities
+namespace Restaurante.Core.Domain
 {
     public class DefaultEntity
     {

@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
+using Restaurante.Core.Domain;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Restaurante.Data.Entities
+namespace Restaurante.Data.Domain
 {
     [Table("Restaurante")]
     public class Restaurante : DefaultEntity

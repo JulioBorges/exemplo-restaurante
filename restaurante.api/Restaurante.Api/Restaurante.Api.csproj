@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Restaurante.Data\Restaurante.Data.csproj" />
+    <ProjectReference Include="..\Restaurante.Service\Restaurante.Aplicacao.csproj" />
   </ItemGroup>
 
 </Project>

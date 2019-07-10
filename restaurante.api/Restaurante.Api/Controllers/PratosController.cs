@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Restaurante.Api.Contrato;
-using Restaurante.Data;
-using Restaurante.Data.Entities;
+using Restaurante.Core.Services;
+using Restaurante.Data.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,8 +11,8 @@ namespace Restaurante.Api.Controllers
     [ApiController]
     public class PratosController : ControllerGenerico<Prato>
     {
-        public PratosController(RestauranteContext contexto)
-            : base(contexto)
+        public PratosController(IService<Prato> servico)
+            : base(servico)
         {
         }
 

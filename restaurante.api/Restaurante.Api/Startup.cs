@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Restaurante.Api.IoC;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Restaurante.Data;
 
 namespace Restaurante.Api
 {
@@ -23,9 +22,11 @@ namespace Restaurante.Api
 
             services.AddScoped<DatabaseInitializer>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<RestauranteContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("RestauranteContext"))
-            );
+
+            services.ConfigureDatabase(Configuration);
+
+            services.ConfigureRepositories();
+            services.ConfigureServices();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

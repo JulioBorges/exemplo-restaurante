@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Restaurante.Data.Entities;
+using Restaurante.Data.Domain;
 
 namespace Restaurante.Data
 {
@@ -9,15 +9,14 @@ namespace Restaurante.Data
             : base(options)
         { }
 
-
-        public DbSet<Entities.Restaurante> Restaurantes { get; set; }
+        public DbSet<Domain.Restaurante> Restaurantes { get; set; }
 
         public DbSet<Prato> Pratos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Entities.Restaurante>()
+            modelBuilder.Entity<Domain.Restaurante>()
               .HasMany(o => o.Pratos)
               .WithOne(o => o.Restaurante)
               .OnDelete(DeleteBehavior.Cascade);

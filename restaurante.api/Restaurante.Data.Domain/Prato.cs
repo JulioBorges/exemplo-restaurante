@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Restaurante.Core.Domain;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Restaurante.Data.Entities
+namespace Restaurante.Data.Domain
 {
     [Table("Prato")]
     public class Prato : DefaultEntity

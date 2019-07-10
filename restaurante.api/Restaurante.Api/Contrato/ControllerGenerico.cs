@@ -1,24 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Restaurante.Data;
-using Restaurante.Data.Entities;
+using Restaurante.Core.Domain;
+using Restaurante.Core.Services;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Restaurante.Api.Contrato
 {
-    public class ControllerGenerico<T> : ControllerBase
-        where T : DefaultEntity
+    public class ControllerGenerico<TEntity> : ControllerBase
+        where TEntity : DefaultEntity
     {
-        protected RestauranteContext _contexto;
+        protected readonly IService<TEntity> _servico;
 
-        public ControllerGenerico(RestauranteContext contexto)
+        public ControllerGenerico(IService<TEntity> servico)
         {
-            _contexto = contexto;
+            _servico = servico;
         }
 
-        protected async Task<IEnumerable<T>> RetornarEntidades(params string [] includes)
+        protected async Task<IEnumerable<TEntity>> RetornarEntidades(params string [] includes)
         {
             var dados = await PrepararQuery(includes).AsNoTracking().ToListAsync();
             return dados;
@@ -35,16 +35,16 @@ namespace Restaurante.Api.Contrato
             return Ok(entidade);
         }
 
-        public async Task<IActionResult> AtualizarEntidade(int id, T entidade)
+        public async Task<IActionResult> AtualizarEntidade(int id, TEntity entidade)
         {
             if (id != entidade.Id)
                 return BadRequest();
 
-            _contexto.Entry(entidade).State = EntityState.Modified;
+            _servico.Update(entidade);
 
             try
             {
-                await _contexto.SaveChangesAsync();
+                await _servico.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -61,35 +61,35 @@ namespace Restaurante.Api.Contrato
             return NoContent();
         }
 
-        public async Task<IActionResult> InserirEntidade(T entidade, string acaoGet)
+        public async Task<IActionResult> InserirEntidade(TEntity entidade, string acaoGet)
         {
-            _contexto.Add(entidade);
-            await _contexto.SaveChangesAsync();
+            _servico.Add(entidade);
+            await _servico.SaveChangesAsync();
 
             return CreatedAtAction(acaoGet, new { id = entidade.Id }, entidade);
         }
 
         public async Task<IActionResult> ExcluirEntidade(int id)
         {
-            var entidade = await _contexto.Set<T>().FindAsync(id);
+            var entidade = _servico.GetById(id);
             
             if (entidade == null)
                 return NotFound();
 
-            _contexto.Remove(entidade);
-            await _contexto.SaveChangesAsync();
+            _servico.Remove(entidade.Id);
+            await _servico.SaveChangesAsync();
 
             return Ok(entidade);
         }
 
         private async Task<bool> EntidadeExistente(int id)
         {
-            return await _contexto.Set<T>().AnyAsync(e => e.Id == id);
+            return await _servico.GetAll().AnyAsync(e => e.Id == id);
         }
 
-        private IQueryable<T> PrepararQuery(params string[] includes)
+        private IQueryable<TEntity> PrepararQuery(params string[] includes)
         {
-            IQueryable<T> query = _contexto.Set<T>();
+            IQueryable<TEntity> query = _servico.GetAll();
 
             if (includes != null &&
                 includes.Length > 0)
